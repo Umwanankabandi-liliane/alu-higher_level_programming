@@ -1,5 +1,6 @@
-#!/usr/bin/python3
-# Function that computes the square value of all integers of a matrix
+#!/usr/bin/python
+
+
 def square_matrix_simple(matrix=[]):
     new_matrix = matrix.copy()
 
@@ -7,4 +8,3 @@ def square_matrix_simple(matrix=[]):
         new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
 
     return (new_matrix)
-
