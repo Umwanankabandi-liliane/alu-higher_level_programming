@@ -39,7 +39,7 @@ class Node:
         self.__next_node = value
 
 class SinglyLinkedList:
-    """Represent a singly_linked list."""
+    """Represent a singly-linked list."""
 
     def __init__(self):
         """Initialize a new SinglyLinkedList."""
