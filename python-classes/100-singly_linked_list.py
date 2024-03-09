@@ -1,46 +1,37 @@
 #!/usr/bin/python3
+"""Defines a Rectangle class.
 
-"""Define classes for a singly-linked list."""
 
+class Rectangle:
+    """Represent a rectangle.
 
-class Node:
-    """Represent a node in a singly-linked list."""
-    
-    def __init__(self, data, next_node=None):
-        """Initialize a new Node.
+    Attributes:
+        number_of_instances (int): The number of Rectangle instances.
+        print_symbol (any): The symbol used for string represent
+    """
+
+    number_of_instances = 0
+    print_symbol = "#"
+
+    def __init__(self, width=0, height=0):
+        """Initialize a new Rectangle.
 
         Args:
-            data (int): The data of the new Node.
-            next_node (Node): The next node of the new Node.
-        """    
-        self.data = data
-        self.next_node = next_node
-        
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle.
+        """
+        type(self).number_of_instances += 1
+        self.width = width
+        self.height = height
+
     @property
-    def data(self):
-        """Get/set the data of the Node."""
-        return (self.__data)
-    
-    @data.setter
-    def data(self, value):
+    def width(self):
+        """Get/set the width of the Rectangle."""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
         if not isinstance(value, int):
-            raise TypeError("data must be an integer")
-        self.__data = value
-
-    @property
-    def next_node(self):
-        """Get/set the next_node of the Node."""
-        return (self.__next_node)
-
-    @next_node.setter
-    def next_node(self, value):
-        if not isinstance(value, Node) and value is not None:
-            raise TypeError("next_node must be a Node object")
-        self.__next_node = value
-
-class SinglyLinkedList:
-    """Represent a singly-linked list."""
-
-    def __init__(self):
-        """Initalize a new SinglyLinkedList."""
-        self.__head = None
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
