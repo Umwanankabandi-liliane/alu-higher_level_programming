@@ -1,15 +1,19 @@
 #!/usr/bin/python3
+"""A script that
+- fetches https://alu-intranet.hbtn.io/status.
+- uses urlib package
+"""
 
 import urllib.request
 
-# Define the URL to fetch
-url = "https://alu-intranet.hbtn.io/status"
+url = 'https://intranet.hbtn.io/status'
+if url.startswith('https://'):
+    url = 'https://alu-intranet.hbtn.io/status'
 
-# Open the URL and fetch the response
-with urllib.request.urlopen(url) as response:
-    # Read the response body and decode it from bytes to UTF-8 string
-    body = response.read().decode('utf-8')
-
-# Print the content of the response body with tabulation
-print("\t- type:", type(body))  # Print the type of the response body
-print("\t- content:", body)     # Print the content of the response body
+if _name_ == '_main_':
+    with urllib.request.urlopen(url) as res:
+        content = res.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(content)))
+        print("\t- content: {}".format(content))
+        print("\t- utf8 content: {}".format(content.decode('utf-8')))
